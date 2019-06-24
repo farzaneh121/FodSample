@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Georgia', sans-serif;
+	background-color: white;
+}
+
+#h3 {
+	font-family: 'Georgia', sans-serif;
+	text-align: center;
+	color: pink;
+}
+
+#h2 {
+	color: white;
+	font-family: 'Georgia', sans-serif;
+}
+
+#content {
+	font-family: 'Georgia', sans-serif;
+	background-color: #ff5f88;
+	width: 500 px;
+	text-align: center;
+	margin: 255px 500px;
+	padding-right: 150px;
+	padding-left: 250px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#table {
+	font-family: 'Georgia', sans-serif;
+	background-color: #ff5f88;
+	text-align: center;
+}
+
+#miniTable {
+	background-color: white;
+	font-family: 'Georgia', sans-serif;
+	border: thick;
+	border-color: black;
+	width: 300px;
+	height: 200px;
+}
