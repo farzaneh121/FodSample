@@ -15,7 +15,6 @@ public class Person implements Serializable {
 
 	public Person(Integer personId, String firstName, String lastName, String emailAddress, String principalName,
 			String personTypeCode) {
-		super();
 		this.personId = personId;
 		this.firstName = firstName;
 		this.lastName = lastName;
