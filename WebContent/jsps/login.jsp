@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/shop-project/resources/css/pages.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pages.css">
 <title>login</title>
 </head>
 <body>

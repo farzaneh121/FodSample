@@ -1,6 +1,8 @@
 package com.farzaneh.model;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
 	private Integer personId;
 	private String firstName;
 	private String lastName;
@@ -9,7 +11,6 @@ public class Person {
 	private String personTypeCode;
 
 	public Person() {
-		super();
 	}
 
 	public Person(Integer personId, String firstName, String lastName, String emailAddress, String principalName,
@@ -69,6 +70,39 @@ public class Person {
 
 	public void setPersonTypeCode(String personTypeCode) {
 		this.personTypeCode = personTypeCode;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((personId == null) ? 0 : personId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		if (personId == null) {
+			if (other.personId != null)
+				return false;
+		} else if (!personId.equals(other.personId)) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [personId=" + personId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", emailAddress=" + emailAddress + ", principalName=" + principalName + ", personTypeCode="
+				+ personTypeCode + "]";
 	}
 
 }

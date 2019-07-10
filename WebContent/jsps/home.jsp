@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>home</title>
-<link rel="stylesheet" href="/shop-project/resources/css/home.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css" />
 </head>
 <link
 	href="https://fonts.googleapis.com/css?family=Dancing+Script|Orbitron"
@@ -49,7 +49,7 @@
 	</center>
 
 
-</body>
+
 <br>
 <br>
 <div id="project">
@@ -60,4 +60,5 @@
 		</p>
 	</center>
 </div>
+</body>
 </html>

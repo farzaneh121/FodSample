@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Products list</title>
-<link rel="stylesheet" href="/shop-project/resources/css/pages.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pages.css">
 </head>
 <body>
 
@@ -28,6 +28,8 @@
 			<table>
 				<tr>
 					<td><select name="product-category" title="category">
+					<option value=""><c:out
+										value="select one item" /></option>
 							<c:forEach var="category" items="${requestScope.categoryList}">
 								<option value="${category.id}"><c:out
 										value="${category.name}" /></option>

@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.farzaneh.service.dao.PersonDAO;
 
@@ -26,10 +27,8 @@ public class SecurityFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
-		for (Cookie cookie : req.getCookies()) {
-			if (cookie.getName().equals("user")) {
-				String randomId = cookie.getValue();
-				if (PersonDAO.PERSON_MAP.containsKey(randomId)) {
+		HttpSession session= req.getSession();
+		if(session!=null && session.getAttribute("user")!=null) {
 					chain.doFilter(request, response);
 				} else {
 					request.setAttribute("exception", "FORBIDDEN REQUEST");
@@ -38,9 +37,7 @@ public class SecurityFilter implements Filter {
 					request.getRequestDispatcher("/jsps/errorPage.jsp").forward(request, response);
 				}
 			}
-		}
-
-	}
+	
 
 	public void init(FilterConfig fConfig) throws ServletException {
 	}

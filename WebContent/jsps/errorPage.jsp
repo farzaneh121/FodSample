@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Error Page</title>
-<link rel="stylesheet" href="/shop-project/resources/css/error.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/error.css">
 <script src="/shop-project/resources/js/error.js"></script>
 
 </head>

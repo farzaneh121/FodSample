@@ -17,29 +17,30 @@ public class PersonDAO {
 			+ ",last_name,person_type_code,email)\n" + "VALUES (nextval('fod.person_seq'),?,?,?,?,?)";
 	private static final String FIND_MEMBER_INFO = "select p.first_name , p.last_name , p.principal_name"
 			+ " from fod.persons p where p.principal_name=? and p.email=?";
-	public static final Map<String, Person> PERSON_MAP = new HashMap<String, Person>();
 
 	public PersonDAO() {
 	}
 
-	public void insertUser(Person person) throws SQLException {
+	public void insertUser(Person person) {
 		dbConneection = new DbConneection();
 		try (Connection connection = dbConneection.getConnectionInstance();
 				PreparedStatement statement = connection.prepareStatement(INSERT_PERSON)) {
+
 			statement.setString(1, person.getPrincipalName());
 			statement.setString(2, person.getFirstName());
 			statement.setString(3, person.getLastName());
 			statement.setString(4, person.getPersonTypeCode());
 			statement.setString(5, person.getEmailAddress());
 			statement.execute();
-
+		} catch (SQLException e) {
+			throw new ProcessException("an error occurred during insert person!", e);
 		} finally {
 			dbConneection.closeConnection();
 		}
 
 	}
 
-	public Person findPerson(Person person) throws SQLException {
+	public Person findPerson(Person person) {
 		dbConneection = new DbConneection();
 		try (PreparedStatement statement = dbConneection.getConnectionInstance().prepareStatement(FIND_MEMBER_INFO)) {
 			statement.setString(1, person.getPrincipalName());
@@ -55,6 +56,8 @@ public class PersonDAO {
 				throw new ProcessException("unfortunatly we can't find any member with your info!");
 			}
 
+		} catch (SQLException e) {
+			throw new ProcessException("an error occurred during find person!", e);
 		} finally {
 			dbConneection.closeConnection();
 		}

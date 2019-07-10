@@ -26,13 +26,13 @@ public class DbConneection {
 
 	public DbConneection() {
 		try {
-			OpenConnection();
+			openConnection();
 		} catch (SQLException e) {
 			throw new ProcessException("Error Occure opening SQL connection", e);
 		}
 	}
 
-	private Connection OpenConnection() throws SQLException {
+	private Connection openConnection() throws SQLException {
 		this.connection = datasource.getConnection();
 		return connection;
 	}
