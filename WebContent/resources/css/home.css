@@ -1,0 +1,36 @@
+#title {
+	font-family: 'Georgia', cursive;
+	text-align: center;
+	color: #581845;
+	font-size: 80px;
+}
+
+#button {
+	font-family: 'Georgia', sans-serif;
+}
+
+#button:hover {
+	font-family: 'Georgia', sans-serif;
+	background-color: #ad7fa8;
+	font-size: 30px;
+}
+
+#menu {
+	text-align: center;
+}
+
+body {
+	background-color: white;
+}
+
+#flavors {
+	font-family: 'Georgia', cursive;
+	font-size: 25px;
+	color: #581845;
+}
+
+#contacttitle {
+	font-family: 'Georgia', cursive;
+	color: white;
+	font-size: 25px;
+}
